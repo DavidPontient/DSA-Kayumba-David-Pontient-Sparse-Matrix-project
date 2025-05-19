@@ -6,8 +6,8 @@ def write_to_file(content):
 
 def main():
     # Automatically load default matrix files
-    matrix1 = SparseMatrix("matrix1.txt")
-    matrix2 = SparseMatrix("matrix2.txt")
+    matrix1 = SparseMatrix("matrixfile1.txt")
+    matrix2 = SparseMatrix("matrixfile3.txt")
 
     print("Sparse Matrix Operations")
     print("1. Add")
