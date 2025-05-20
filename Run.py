@@ -9,7 +9,7 @@ def main():
         print("Choose 1. Addition")
         print("Choose 2. Subtraction")
         print("Choose 3. Multiplication")
-        choice = input("Choose: ")
+        choice = input("pick your character: ")
 
         if choice == '1':
             result = matrix1.add(matrix2)
@@ -18,9 +18,9 @@ def main():
         elif choice == '3':
             result = matrix1.multiply(matrix2)
         else:
-            print("Invalid choice.")
+            print("wrong choice bro.")
             return
-
+#i would have loved to create a conditional statement here that creates an output file based on the expression chose however i had to save time and was on a tight schedule lol
         with open("result.txt", "w") as f:
             f.write(str(result))
 
