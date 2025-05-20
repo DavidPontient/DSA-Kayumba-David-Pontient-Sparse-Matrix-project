@@ -1,5 +1,5 @@
-from sparse_matrix import SparseMatrix
-
+from SparseM import SparseMatrix #import from our sparce file
+#this is where we shall store our output
 def write_to_file(content):
     with open("results.txt", "w") as f:
         f.write(content)
@@ -10,11 +10,11 @@ def main():
     matrix2 = SparseMatrix("matrixfile3.txt")
 
     print("Sparse Matrix Operations")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
+    print("choose 1. Add")
+    print("choose 2. Subtract")
+    print("choose 3. Multiply")
 
-    choice = input("Choose an operation (1/2/3): ").strip()
+    choice = input("Select an operation from 1-3: ")
 
     if choice == "1":
         result = matrix1.add(matrix2)
@@ -26,7 +26,7 @@ def main():
         result = matrix1.multiply(matrix2)
         header = "Multiplication Result:\n"
     else:
-        print("Invalid choice.")
+        print("Ops Worng choice.")
         return
 
     # Print and save the result
