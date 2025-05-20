@@ -8,12 +8,9 @@ class SparseMatrix:
             self.load_from_file(file_path)
 
     def load_from_file(self, file_path):
-        """
-        Load matrix data from a file with format:
-        rows=<num>
-        cols=<num>
-        (row, col, value)
-        """
+        
+        # Load matrix data from a file with the format rows= num etc (row, col, value)
+    
         with open(file_path, 'r') as file:
             lines = file.readlines()
             self.rows = int(lines[0].split('=')[1])
@@ -22,20 +19,20 @@ class SparseMatrix:
                 if line.strip():
                     row, col, val = map(int, line.strip()[1:-1].split(','))
                     self.set(row, col, val)
-
+#The first two lines in the file say how many rows and columns the matrix 
     def get(self, row, col):
         # Returns value at (row, col), or 0 if not set
         return self.data.get((row, col), 0)
 
     def set(self, row, col, value):
-        # Adds or removes element depending on value
+        # removes element depending on value or adds them
         if value != 0:
             self.data[(row, col)] = value
         elif (row, col) in self.data:
             del self.data[(row, col)]
 
     def add(self, other):
-        # Add two matrices
+        # Adding to elements(matrices)
         result = SparseMatrix()
         result.rows = self.rows
         result.cols = self.cols
@@ -45,7 +42,7 @@ class SparseMatrix:
         return result
 
     def subtract(self, other):
-        # Subtract two matrices
+        # Subtracting two matrices
         result = SparseMatrix()
         result.rows = self.rows
         result.cols = self.cols
