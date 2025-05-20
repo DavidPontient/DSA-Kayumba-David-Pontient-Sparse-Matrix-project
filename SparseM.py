@@ -1,6 +1,6 @@
 class SparseMatrix:
     def __init__(self, file_path=None):
-        # Stores non-zero elements using (row, col) as key
+        # Dictionary to store non-zero values as (row, col): value
         self.data = {}
         self.rows = 0
         self.cols = 0
