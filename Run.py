@@ -2,8 +2,8 @@ from SparseM import SparseMatrix
 #for this file its pretty self explanatory, it loads the SparceMatrix function from our file then creates criteria to run the code and saves the results to our file results.
 def main():
     try:
-        matrix1 = SparseMatrix(file_path='matrix1.txt')
-        matrix2 = SparseMatrix(file_path='matrix3.txt')
+        matrix1 = SparseMatrix(file_path='matrixfile1.txt')
+        matrix2 = SparseMatrix(file_path='matrixfile3.txt')
 
         print("sparse mtrix operations")
         print("Choose 1. Addition")
