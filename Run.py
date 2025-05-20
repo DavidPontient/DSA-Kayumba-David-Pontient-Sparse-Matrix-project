@@ -1,38 +1,31 @@
-from SparseM import SparseMatrix #import from our sparce file
-#this is where we shall store our output
-def write_to_file(content):
-    with open("results.txt", "w") as f:
-        f.write(content)
-
+from SparseM import SparseMatrix
+#for this file its pretty self explanatory, it loads the SparceMatrix function from our file then creates criteria to run the code and saves the results to our file results.
 def main():
-    # Automatically load default matrix files
-    matrix1 = SparseMatrix("matrixfile1.txt")
-    matrix2 = SparseMatrix("matrixfile3.txt")
+    try:
+        matrix1 = SparseMatrix(file_path='matrix1.txt')
+        matrix2 = SparseMatrix(file_path='matrix3.txt')
 
-    print("Sparse Matrix Operations")
-    print("choose 1. Add")
-    print("choose 2. Subtract")
-    print("choose 3. Multiply")
+        print("sparse mtrix operations")
+        print("Choose 1. Addition")
+        print("Choose 2. Subtraction")
+        print("Choose 3. Multiplication")
+        choice = input("Choose: ")
 
-    choice = input("Select an operation from 1-3: ")
+        if choice == '1':
+            result = matrix1.add(matrix2)
+        elif choice == '2':
+            result = matrix1.subtract(matrix2)
+        elif choice == '3':
+            result = matrix1.multiply(matrix2)
+        else:
+            print("Invalid choice.")
+            return
 
-    if choice == "1":
-        result = matrix1.add(matrix2)
-        header = "Addition Result:\n"
-    elif choice == "2":
-        result = matrix1.subtract(matrix2)
-        header = "Subtraction Result:\n"
-    elif choice == "3":
-        result = matrix1.multiply(matrix2)
-        header = "Multiplication Result:\n"
-    else:
-        print("Ops Worng choice.")
-        return
+        with open("result.txt", "w") as f:
+            f.write(str(result))
 
-    # Print and save the result
-    result_text = header + str(result)
-    print(result_text)
-    write_to_file(result_text)
+    except ValueError as ve:
+        print(f"Error: {ve}")
 
 if __name__ == "__main__":
     main()
